@@ -1,0 +1,24 @@
+---
+title: "Presentation"
+author: "Mariam Mohamed"
+date: "12/16/2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+##`r format(Sys.Date() - as.difftime(60, unit="days"), "%B %d, %Y")`
+
+```{r, echo=FALSE}
+library(leaflet)
+set.seed(2016-04-25)
+df <- data.frame(lat = c(30.045916, 29.976480, 29.203171, 25.719595, 31.208870, 30.028706),
+                 lng = c(31.224291, 31.131302, 25.519545, 32.655807, 29.909201, 31.249592))
+textMap <- c("Cairo Tower", "Pyramids", "Siwa Oasis", "The Karnak Temple", "Alexandria Library", "The Mosque of Ahmad Ibn Tulun")
+df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup = textMap)
+```
