@@ -1,0 +1,19 @@
+---
+title: "Week 3 Presentation"
+author: "Mariam Mohamed"
+date: "`r format(Sys.Date() - as.difftime(60, unit='days'), '%B %d, %Y')`"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+##mtcars dataset
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", mode='markers',
+        color = ~factor(cyl), size = ~hp)
+```
