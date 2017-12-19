@@ -1,0 +1,43 @@
+---
+title: "My Shiny App"
+author: "Mariam Mohamed"
+date: "12/19/2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## App Idea
+
+This app's goal is to plot the iris dataset sepal length and width and plot petal length and width according to the species selected by the user.
+
+## Iris species to choose from
+
+- virginica
+- setosa
+- versicolor
+
+The user has to choose from the list and click on the submit button
+
+## Example: Sepal.Length ~ Sepal.Width: using only species ["virginica", "setosa"]
+
+```{r , echo=FALSE}
+library(ggplot2)
+```
+
+```{r ,echo = FALSE}
+my.data <- iris[iris$Species %in% c("virginica", "setosa"), ]
+qplot(Sepal.Length, Sepal.Width, xlab = "Sepal.Length", ylab = "Sepal.Width", colour=Species, data = my.data)
+```
+
+## Example: Petal.Length ~ Petal.Width: using species ["virginica", "setosa", "versicolor"]
+
+
+```{r ,echo = FALSE}
+my.data <- iris[iris$Species %in% c("virginica", "setosa", "versicolor"), ]
+qplot(Petal.Length, Petal.Width, xlab = "Petal.Length", ylab = "Petal.Width", colour=Species, data = my.data)
+```
+
+
